@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Rental Mobil</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Nama</string>
+    <string name="login">Login</string>
+    <string name="notHaveAccount">Belum punya akun ?</string>
+    <string name="registerHere">Daftar Disini</string>
+    <string name="register">Daftar</string>
+    <string name="haveAccount">Sudah punya akun ?</string>
+    <string name="loginHere">Login Disini</string>
+    <string name="passwodConfirm">Konfirmasi password</string>
+    <string name="logout">Logout</string>
+    <string name="admin">Admin</string>
+    <string name="order">PESAN</string>
+    <string name="cancel">Batalkan Pesanan</string>
+    <string name="_00_00_0000">00/00/0000</string>
+    <string name="nama">Nama</string>
+    <string name="month">Bulan</string>
+    <string name="orderCount">Pesanan</string>
+    <string name="income">Pemasukan</string>
+    <string name="date0">Tanggal Mulai</string>
+    <string name="date1">Tanggal Selesai</string>
+    <string name="cust_name">Nama Pemesan</string>
+    <string name="adsress">Alamat</string>
+    <string name="phone">Nomor HP</string>
+    <string name="duration">Durasi Penyewaan</string>
+    <string name="price_total">Tarif Total</string>
+    <string name="day">Tanggal</string>
+</resources>

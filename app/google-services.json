@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "609142784692",
+    "project_id": "uasrental-1b5a4",
+    "storage_bucket": "uasrental-1b5a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609142784692:android:134427b21f1d5b344ccde1",
+        "android_client_info": {
+          "package_name": "com.mobileapps.uas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609142784692-v5phhoqu2mthf1e2ce73ncg2et6ugedn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0h0kTm6alCY4AxCGz60ZyIE59Co2_goQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609142784692-v5phhoqu2mthf1e2ce73ncg2et6ugedn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
