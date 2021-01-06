@@ -72,9 +72,9 @@ public class ReportActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Order order = snapshot.getValue(Order.class);
 
-                    if(!order.getStatus().equals("dibatalkan")){
+                    if(order.getStatus().equals("selesai")){
                         for (int i = 0 ; i<30 ; i++){
-                            if(Util.unixTimeToString(order.getOrderDate()).equals(myList.get(i).getDate())){
+                            if(Util.unixTimeToString(order.getRendEndDate()).equals(myList.get(i).getDate())){
                                 int orderCount = myList.get(i).getOrderCount() + 1;
                                 int newPrice = order.getTotalPrice();
                                 int income = myList.get(i).getIncome() + newPrice;

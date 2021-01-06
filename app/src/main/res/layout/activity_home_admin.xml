@@ -7,6 +7,7 @@
     tools:context=".ui.HomeAdminActivity">
 
 
+
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
@@ -58,14 +59,15 @@
     <View
         android:id="@+id/view4"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:layout_margin="20dp"
         android:background="@drawable/bg_shadow_box"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.389" />
 
     <ImageButton
         android:id="@+id/btnReport"
@@ -111,10 +113,10 @@
         android:src="@drawable/ic_baseline_shopping_cart_24"
         app:layout_constraintBottom_toBottomOf="@+id/view4"
         app:layout_constraintEnd_toStartOf="@+id/view3"
-        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/view4"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.125" />
 
     <View
         android:id="@+id/view3"
@@ -143,5 +145,33 @@
         app:layout_constraintEnd_toEndOf="@+id/btnReport"
         app:layout_constraintStart_toStartOf="@+id/btnReport"
         app:layout_constraintTop_toBottomOf="@+id/btnReport" />
+
+
+    <ImageButton
+        android:id="@+id/btnCarList"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_shadow"
+        android:padding="25dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_directions_car_24"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toStartOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.731" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Daftar Mobil"
+        app:layout_constraintEnd_toEndOf="@+id/btnCarList"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="@+id/btnCarList"
+        app:layout_constraintTop_toBottomOf="@+id/btnCarList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

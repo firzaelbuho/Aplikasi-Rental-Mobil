@@ -5,10 +5,12 @@ import androidx.core.app.NavUtils;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +35,7 @@ public class CarsListActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter mAdapter;
+    Button btnAddCar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +43,26 @@ public class CarsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cars_list);
 
 
+
+
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Pilih Mobil");
         initWidgets();
+        checkIsAdmin();
         showList();
+    }
+
+    private void checkIsAdmin() {
+        if(Util.isAdmin){
+            btnAddCar.setVisibility(View.VISIBLE);
+            btnAddCar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Util.isFirst = true;
+                    startActivity(new Intent(CarsListActivity.this, AddCarActivity.class));
+                }
+            });
+        }
     }
 
     private void showList() {
@@ -90,6 +108,7 @@ public class CarsListActivity extends AppCompatActivity {
     }
 
     private void initWidgets() {
+        btnAddCar = findViewById(R.id.btnAddCar);
         rvList = findViewById(R.id.rvCarList);
         loader = findViewById(R.id.progressBar);
     }

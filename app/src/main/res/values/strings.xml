@@ -27,4 +27,5 @@
     <string name="duration">Durasi Penyewaan</string>
     <string name="price_total">Tarif Total</string>
     <string name="day">Tanggal</string>
+    <string name="add_car">Tambah Mobil Baru</string>
 </resources>

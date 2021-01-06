@@ -47,20 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     void insertData(){
-        String idStr = "car"+ Util.generateId();
-        Car car = new Car(idStr,"Honda Jazz", 2015,500000, "firzaelbuho.github.io/assets/img/rental",true);
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("CARS");
-        mDatabase.child(idStr).setValue(car)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),
-                                    "Pesanan berhasil dibuat", Toast.LENGTH_SHORT).show();
 
-
-                        }
-                    }
-                });
     }
 }

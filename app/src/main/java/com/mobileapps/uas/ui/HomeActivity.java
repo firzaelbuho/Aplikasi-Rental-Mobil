@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.mobileapps.uas.R;
@@ -17,13 +20,14 @@ import com.mobileapps.uas.Util;
 public class HomeActivity extends AppCompatActivity {
 
     TextView tvname;
+    ImageView imgAvatar;
     ImageButton btnCar, btnMyOrder, btnProfile, btnAbout, btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        Util.isAdmin = false;
         initWidgets();
         updateUi();
         initClickListener();
@@ -69,10 +73,17 @@ public class HomeActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){
             tvname.setText(user.getDisplayName());
+            if(user.getPhotoUrl() != null){
+                Glide.with(imgAvatar)
+                        .load(user.getPhotoUrl())
+                        .into(imgAvatar);
+            }
+            Log.d("uri photo", user.getPhotoUrl()+"") ;
         }
     }
 
     private void initWidgets() {
+        imgAvatar = findViewById(R.id.circleImageView);
         btnLogout = findViewById(R.id.btnLogout);
         tvname = findViewById(R.id.name);
         btnCar = findViewById(R.id.btnCar);

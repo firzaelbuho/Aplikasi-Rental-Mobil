@@ -7,14 +7,14 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UAS">
-
-        <activity android:name=".ui.AboutActivity"></activity>
+        <activity android:name=".ui.AddCarActivity"></activity>
+        <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.ReportActivity" />
         <activity android:name=".ui.ProfileActivity" />
         <activity android:name=".ui.PlaceOrderActivity" />

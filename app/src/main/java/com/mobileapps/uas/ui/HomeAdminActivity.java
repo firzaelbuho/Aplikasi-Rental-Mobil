@@ -13,7 +13,7 @@ import com.mobileapps.uas.Util;
 
 public class HomeAdminActivity extends AppCompatActivity {
 
-    ImageButton btnLogout, btnOrderList, btnReport;
+    ImageButton btnLogout, btnOrderList, btnReport, btnCarList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class HomeAdminActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout);
         btnOrderList = findViewById(R.id.btnOrderList);
         btnReport = findViewById(R.id.btnReport);
+        btnCarList = findViewById(R.id.btnCarList);
     }
 
     private void initClickListener() {
@@ -43,6 +44,12 @@ public class HomeAdminActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Util.isFirst = false;
                 startActivity(new Intent(HomeAdminActivity.this,OrderListActivity.class));
+            }
+        });
+        btnCarList.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                startActivity(new Intent(HomeAdminActivity.this,CarsListActivity.class));
             }
         });
         btnReport.setOnClickListener(new View.OnClickListener() {

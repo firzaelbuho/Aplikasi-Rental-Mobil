@@ -5,6 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Order implements Parcelable {
+    private String carImg = "";
     private String status = "";
     private String orderId = "";
     private long orderDate = 0;
@@ -19,7 +20,14 @@ public class Order implements Parcelable {
     private int totalPrice = 0;
     private String carId = "";
 
-    public Order(String status, String orderId, long orderDate, long rendStartDate, long rendEndDate, String customerId, String customerName, String address, String phone, String carName, int carprice, int totalPrice, String carId) {
+
+
+    public Order() {
+
+    }
+
+    public Order(String carImg, String status, String orderId, long orderDate, long rendStartDate, long rendEndDate, String customerId, String customerName, String address, String phone, String carName, int carprice, int totalPrice, String carId) {
+        this.carImg = carImg;
         this.status = status;
         this.orderId = orderId;
         this.orderDate = orderDate;
@@ -35,12 +43,8 @@ public class Order implements Parcelable {
         this.carId = carId;
     }
 
-    public Order() {
-
-    }
-
-
     protected Order(Parcel in) {
+        carImg = in.readString();
         status = in.readString();
         orderId = in.readString();
         orderDate = in.readLong();
@@ -58,6 +62,7 @@ public class Order implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(carImg);
         dest.writeString(status);
         dest.writeString(orderId);
         dest.writeLong(orderDate);
@@ -192,6 +197,14 @@ public class Order implements Parcelable {
 
     public void setCarId(String carId) {
         this.carId = carId;
+    }
+
+    public String getCarImg() {
+        return carImg;
+    }
+
+    public void setCarImg(String carImg) {
+        this.carImg = carImg;
     }
 }
 

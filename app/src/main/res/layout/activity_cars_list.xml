@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".ui.CarsListActivity">
 
+    <Button
+
+        android:visibility="gone"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_car"
+        android:id="@+id/btnAddCar"/>
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_gravity="center"

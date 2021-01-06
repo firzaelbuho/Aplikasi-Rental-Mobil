@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -101,7 +102,10 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 stamp0 = Util.toUnixTime(Util.getCurrentDate());
                 stamp1 = Util.toUnixTime(Util.getCurrentDate());
                 updatePrice();
-                // imgCar.
+
+                Glide.with(imgCar)
+                        .load(car.getImgUrl())
+                        .into(imgCar);
 
 
 
@@ -205,7 +209,9 @@ public class PlaceOrderActivity extends AppCompatActivity {
     private void setupFromData() {
 
         order = Util.order;
-        // imgCar.
+        Glide.with(imgCar)
+                .load(order.getCarImg())
+                .into(imgCar);
         Intent intent = getIntent();
         // order = intent.getParcelableExtra(EXTRA_ORDER);
         tvCarName.setText(order.getCarName());
@@ -333,12 +339,14 @@ public class PlaceOrderActivity extends AppCompatActivity {
         String carName = "";
         int carprice = 0;
         int totalPrice = Integer.parseInt(etPrice.getText().toString());
+        String carImg = "";
 
         if(Util.isAdmin){
 
         }
 
         if(Util.isFirst){
+            carImg = car.getImgUrl();
             carName = car.getName();
             carprice = car.getCost();
             carId = car.getId();
@@ -348,7 +356,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
         } else {
 
-
+            carImg = order.getCarImg();
             msg = "Pesanan berhasil diubah";
             carName = order.getCarName();
             carprice = order.getCarprice();
@@ -366,7 +374,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
 
 
-        Order order = new Order(status, orderId,orderDate,startDate,endDate,customerId,customerName,address,phone,carName,carprice,totalPrice, carId);
+        Order order = new Order(carImg,status, orderId,orderDate,startDate,endDate,customerId,customerName,address,phone,carName,carprice,totalPrice, carId);
 
         mDatabase = FirebaseDatabase.getInstance().getReference("ORDERS");
         mDatabase.child(orderId).setValue(order)
@@ -451,7 +459,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
             etDateEnd.setError("Tanggal tidak valid");
             btnSave.setEnabled(false);
         } else {
-
+            // cek apa tanggal valid #2
             if(date0 < Util.toUnixTime(Util.getCurrentDate())){
                 Log.d("cekkkk", "updatePrice: ");
                 etDateStart.setError("Tanggal tidak valid");
@@ -461,12 +469,13 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 etDateStart.setError(null);
                 etDateEnd.setError(null);
                 btnSave.setEnabled(true);
+                checkDateAvailability();
             }
 
 //            etDateStart.setError(null);
 //            etDateEnd.setError(null);
 //            btnSave.setEnabled(true);
-            checkDateAvailability();
+
         }
         if(duration>0){
 

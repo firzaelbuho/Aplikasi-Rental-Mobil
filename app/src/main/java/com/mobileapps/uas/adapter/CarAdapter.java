@@ -9,9 +9,11 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.mobileapps.uas.R;
 import com.mobileapps.uas.Util;
 import com.mobileapps.uas.model.Car;
+import com.mobileapps.uas.ui.AddCarActivity;
 import com.mobileapps.uas.ui.PlaceOrderActivity;
 
 import java.util.List;
@@ -36,15 +38,27 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.MyViewHolder> {
         }
 
         public void bind(Car car) {
-            name.setText(car.getName()+" "+car.getYear());
+            name.setText(car.getName()+" ");
             price.setText("Rp. "+car.getCost());
-            img.setImageResource(R.drawable.avanza);
+
+            Glide.with(img)
+                    .load(car.getImgUrl())
+                    .into(img);
             view.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Util.isFirst = true;
-                    Intent intent = new Intent(view.getContext(), PlaceOrderActivity.class);
-                    intent.putExtra(PlaceOrderActivity.EXTRA_CAR, car);
-                    view.getContext().startActivity(intent);
+
+                    if(Util.isAdmin){
+                        Intent intent = new Intent(view.getContext(), AddCarActivity.class);
+                        Util.isFirst = false;
+                        intent.putExtra(PlaceOrderActivity.EXTRA_CAR, car);
+                        view.getContext().startActivity(intent);
+                    } else {
+                        Util.isFirst = true;
+                        Intent intent = new Intent(view.getContext(), PlaceOrderActivity.class);
+                        intent.putExtra(PlaceOrderActivity.EXTRA_CAR, car);
+                        view.getContext().startActivity(intent);
+                    }
+
 
                 }
             });
